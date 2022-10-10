@@ -1,4 +1,4 @@
-package com.onlinetest.app.models;
+package com.onlinetest.app.model;
 
 import javax.persistence.*;
 import java.util.HashSet;
@@ -11,6 +11,7 @@ public class Role {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
     private Long id;
+
     private String roleName;
     @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY,mappedBy = "role")
     private Set<UserRole> userRoles=new HashSet<>();

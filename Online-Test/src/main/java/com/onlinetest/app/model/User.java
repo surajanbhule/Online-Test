@@ -1,4 +1,4 @@
-package com.onlinetest.app.models;
+package com.onlinetest.app.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 

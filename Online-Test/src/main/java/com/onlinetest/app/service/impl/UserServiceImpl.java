@@ -1,10 +1,10 @@
-package com.onlinetest.app.services.impl;
+package com.onlinetest.app.service.impl;
 
-import com.onlinetest.app.models.User;
-import com.onlinetest.app.models.UserRole;
-import com.onlinetest.app.repositories.RoleRepository;
-import com.onlinetest.app.repositories.UserRepository;
-import com.onlinetest.app.services.UserService;
+import com.onlinetest.app.model.User;
+import com.onlinetest.app.model.UserRole;
+import com.onlinetest.app.repository.RoleRepository;
+import com.onlinetest.app.repository.UserRepository;
+import com.onlinetest.app.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -32,5 +32,15 @@ public class UserServiceImpl implements UserService {
             local=this.userRepository.save(user);
         }
         return local;
+    }
+
+    @Override
+    public User getUser(String username) {
+        return this.userRepository.findByUsername(username);
+    }
+
+    @Override
+    public void deleteUser(Long id) {
+        this.userRepository.deleteById(id);
     }
 }
