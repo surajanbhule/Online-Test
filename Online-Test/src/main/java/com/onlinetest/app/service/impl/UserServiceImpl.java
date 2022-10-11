@@ -29,6 +29,7 @@ public class UserServiceImpl implements UserService {
             }
 
             user.getUserRoles().addAll(userRoles);
+            user.setProfile("default.png");
             local=this.userRepository.save(user);
         }
         return local;
