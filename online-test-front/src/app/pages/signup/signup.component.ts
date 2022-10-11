@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from 'src/app/services/user.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-signup',
@@ -21,14 +22,39 @@ export class SignupComponent  {
 
 registerUser(){
 
-  this.userService.addUser(this.user).subscribe(
+  if(this.user.username===null|| this.user.password===null){
+
+    Swal.fire({
+  icon: 'error',
+  title: 'Oops...',
+  text: 'Username Or Password Cant Be Open!',
+  
+})
+
+  }else{
+
+    this.userService.addUser(this.user).subscribe(
     (data)=>{
-      alert('Data Registered');
+      Swal.fire({
+  position: 'top-end',
+  icon: 'success',
+  title: 'User Registration Succeed !',
+  showConfirmButton: false,
+  timer: 1500
+})
     },
     (error)=>{
-      alert('Data Not Registered');
+      Swal.fire({
+  icon: 'error',
+  title: 'Oops...',
+  text: 'Something went wrong!',
+  
+})
     }
     );
+
+  }
+  
 }
 
 }

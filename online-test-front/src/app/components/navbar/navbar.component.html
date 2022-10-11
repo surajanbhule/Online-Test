@@ -1,1 +1,15 @@
-<p>navbar works!</p>
+<mat-toolbar color="primary">
+  <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <span>Online Test</span>
+  <span class="spacer"></span>
+  <a [routerLink]="'/login'" mat-icon-button class="me-5">
+    <mat-icon>login</mat-icon>
+    Login
+  </a>
+  <a [routerLink]="'/signup'" mat-icon-button class="me-5">
+    <mat-icon>how_to_reg</mat-icon>
+    Register
+  </a>
+</mat-toolbar>

@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-md-6 offset-md-3">
-      <div class="container text-center">
+      <div class="container text-center mt-5">
         <mat-card>
           <mat-card-title>
             <h2 class="text-center">
@@ -13,45 +13,94 @@
               />
               Register Here
             </h2>
-            
           </mat-card-title>
 
           <mat-card-content>
-
             <form (ngSubmit)="registerUser()">
               <mat-form-field appearance="outline" class="w-100">
                 <mat-label> Enter Your Username </mat-label>
-                <input matInput placeholder="Username" type="text" [(ngModel)]="user.username" name="username" />
+                <input
+                  matInput
+                  placeholder="Username"
+                  type="text"
+                  [(ngModel)]="user.username"
+                  name="username"
+                  required
+                />
               </mat-form-field>
 
               <mat-form-field appearance="outline" class="w-100">
                 <mat-label> Enter Your Password </mat-label>
-                <input matInput placeholder="Password" type="text" [(ngModel)]="user.password" name="password"/>
+                <input
+                  matInput
+                  placeholder="Password"
+                  type="text"
+                  [(ngModel)]="user.password"
+                  name="password"
+                   required
+                />
               </mat-form-field>
 
               <mat-form-field appearance="outline" class="w-100">
                 <mat-label> Enter Your First Name </mat-label>
-                <input matInput placeholder="First Name" type="text" [(ngModel)]="user.first_name" name="firstname"/>
+                <input
+                  matInput
+                  placeholder="First Name"
+                  type="text"
+                  [(ngModel)]="user.first_name"
+                  name="firstname"
+                   required
+                />
               </mat-form-field>
 
               <mat-form-field appearance="outline" class="w-100">
                 <mat-label> Enter Your Last Name </mat-label>
-                <input matInput placeholder="Last Name" type="text" [(ngModel)]="user.last_name" name="lastname"/>
+                <input
+                  matInput
+                  placeholder="Last Name"
+                  type="text"
+                  [(ngModel)]="user.last_name"
+                  name="lastname"
+                   required
+                />
               </mat-form-field>
 
               <mat-form-field appearance="outline" class="w-100">
                 <mat-label> Enter Your Email </mat-label>
-                <input matInput placeholder="Email" type="email" [(ngModel)]="user.email" name="email">
+                <input
+                  matInput
+                  placeholder="Email"
+                  type="email"
+                  [(ngModel)]="user.email"
+                  name="email"
+                   required
+                />
               </mat-form-field>
 
               <mat-form-field appearance="outline" class="w-100">
                 <mat-label> Enter Your Phone </mat-label>
-                <input matInput placeholder="Phone Number" type="text" [(ngModel)]="user.phone" name="phone"/>
+                <input
+                  matInput
+                  placeholder="Phone Number"
+                  type="text"
+                  [(ngModel)]="user.phone"
+                  name="phone"
+                   required
+                />
               </mat-form-field>
 
               <div class="container">
-                <button mat-raised-button color="primary" type="submit">Register</button>
-                <button mat-raised-button color="accent" class="ms-2" type="reset">Clear</button>
+                <button mat-raised-button color="primary" type="submit">
+                  Register
+                </button>
+                <button
+                  mat-raised-button
+                  color="accent"
+                  class="ms-2"
+                  type="reset"
+                >
+                  Clear
+                </button>
               </div>
             </form>
           </mat-card-content>
