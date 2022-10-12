@@ -12,15 +12,18 @@
                 alt="Online Test"
               />
               Login Here
+              
             </h2>
           </mat-card-title>
 
           <mat-card-content>
-            <form >
+            <form (ngSubmit)="formSubmit()">
               <mat-form-field appearance="outline" class="w-100">
                 <mat-label> Enter Your Username </mat-label>
                 <input
                   matInput
+                  [(ngModel)]="loginData.username"
+                  
                   placeholder="Username"
                   type="text"
                   
@@ -33,6 +36,7 @@
                 <mat-label> Enter Your Password </mat-label>
                 <input
                   matInput
+                  [(ngModel)]="loginData.password"
                   placeholder="Password"
                   type="text"
                   
