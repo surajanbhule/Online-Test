@@ -11,8 +11,12 @@ import { SignupComponent } from './pages/signup/signup.component';
 import { LoginComponent } from './pages/login/login.component';
 import { MaterialModule } from './shared/material/material.module';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HomeComponent } from './pages/home/home.component';
+import { AuthInterceptor } from './services/auth.interceptor';
+import { DashboardComponent } from './pages/admin/dashboard/dashboard.component';
+import { UserDashboardComponent } from './pages/user/user-dashboard/user-dashboard.component';
+
 
 @NgModule({
   declarations: [
@@ -21,7 +25,9 @@ import { HomeComponent } from './pages/home/home.component';
     FooterComponent,
     SignupComponent,
     LoginComponent,
-    HomeComponent
+    HomeComponent,
+    DashboardComponent,
+    UserDashboardComponent
   ],
   imports: [
     BrowserModule,
@@ -31,7 +37,13 @@ import { HomeComponent } from './pages/home/home.component';
     FormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [
+      {
+        provide:HTTP_INTERCEPTORS,
+        useClass:AuthInterceptor,
+        multi:true,
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

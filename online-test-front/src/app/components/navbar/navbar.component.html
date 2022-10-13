@@ -4,12 +4,36 @@
   </button>
   <span>Online Test</span>
   <span class="spacer"></span>
-  <a [routerLink]="'/login'" mat-icon-button class="me-5">
+  <a
+  *ngIf="!isUserLoggedIn"
+   [routerLink]="'/login'" mat-icon-button class="me-5 ms-3">
     <mat-icon>login</mat-icon>
     Login
   </a>
-  <a [routerLink]="'/signup'" mat-icon-button class="me-5">
+
+     <a 
+  *ngIf="isUserLoggedIn"
+  
+  mat-icon-button class="me-5 ms-3">
+    <mat-icon>account_circle</mat-icon>
+    {{currentUsername}}
+  </a>
+  <a 
+  *ngIf="!isUserLoggedIn"
+  [routerLink]="'/signup'" mat-icon-button class="me-5 ms-3">
     <mat-icon>how_to_reg</mat-icon>
     Register
   </a>
+
+   <a 
+  *ngIf="isUserLoggedIn"
+  (click)="logout()"
+  mat-icon-button class="me-5 ms-2">
+    <mat-icon>logout</mat-icon>
+    Logout
+  </a>
 </mat-toolbar>
+
+ 
+
+ 

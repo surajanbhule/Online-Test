@@ -27,7 +27,7 @@ registerUser(){
     Swal.fire({
   icon: 'error',
   title: 'Oops...',
-  text: 'Username Or Password Cant Be Open!',
+  text: 'Username Or Password Cannot Empty!',
   
 })
 
@@ -47,7 +47,7 @@ registerUser(){
       Swal.fire({
   icon: 'error',
   title: 'Oops...',
-  text: 'Something went wrong!',
+  text: 'User Already Exists!',
   
 })
     }
