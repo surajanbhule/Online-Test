@@ -1,0 +1,48 @@
+<mat-card *ngIf="user">
+  <h3>Your Profile Details</h3>
+
+  <mat-card-content>
+    <div class="container">
+      <div class="row">
+        <div class="container text-center">
+          <img
+            src="https://media.istockphoto.com/vectors/default-profile-picture-avatar-photo-placeholder-vector-illustration-vector-id1223671392?k=20&m=1223671392&s=612x612&w=0&h=lGpj2vWAI3WUT1JeJWm1PRoHT3V15_1pdcTn2szdwQ0="
+            alt=""
+            class="profile-image"
+          />
+
+          <h1 class="mt-3">{{user?.first_name}} {{user?.last_name}}</h1>
+        </div>
+
+        <div class="col-md-10 offset-md-1">
+            <table class="table text-center" >
+                <tr>
+                    <td >Username :</td>
+                    <td > {{user?.username}}</td>
+                </tr>
+                  <tr>
+                    <td >Email :</td>
+                    <td > {{user?.email}}</td>
+                </tr>
+                  <tr>
+                    <td >Phone :</td>
+                    <td > {{user?.phone}}</td>
+                </tr>
+                  <tr>
+                    <td >Role :</td>
+                    <td > {{user?.authorities[0].authority}}</td>
+                </tr>
+                  <tr>
+                    <td >Status :</td>
+                    <td > {{user.enable? 'ACTIVE' : 'EXPIRED' }}</td>
+                </tr>
+            </table>
+        </div>
+      </div>
+    </div>
+  </mat-card-content>
+  <mat-card-actions class="text-center">
+    <button mat-raised-button color="primary">Update</button>
+    <button mat-raised-button color="accent">Share</button>
+  </mat-card-actions>
+</mat-card>

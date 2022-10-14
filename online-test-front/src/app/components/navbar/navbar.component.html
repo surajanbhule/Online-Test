@@ -6,21 +6,21 @@
   <span class="spacer"></span>
   <a
   *ngIf="!isUserLoggedIn"
-   [routerLink]="'/login'" mat-icon-button class="me-5 ms-3">
+   [routerLink]="'/login'" mat-icon-button class="me-5 ms-5">
     <mat-icon>login</mat-icon>
     Login
   </a>
 
      <a 
   *ngIf="isUserLoggedIn"
-  
-  mat-icon-button class="me-5 ms-3">
+  routerLink="/admin/profile"
+  mat-icon-button class="me-5 ms-5">
     <mat-icon>account_circle</mat-icon>
     {{currentUsername}}
   </a>
   <a 
   *ngIf="!isUserLoggedIn"
-  [routerLink]="'/signup'" mat-icon-button class="me-5 ms-3">
+  [routerLink]="'/signup'" mat-icon-button class="me-5 ms-5">
     <mat-icon>how_to_reg</mat-icon>
     Register
   </a>
@@ -28,7 +28,7 @@
    <a 
   *ngIf="isUserLoggedIn"
   (click)="logout()"
-  mat-icon-button class="me-5 ms-2">
+  mat-icon-button class="me-5 ms-5">
     <mat-icon>logout</mat-icon>
     Logout
   </a>
