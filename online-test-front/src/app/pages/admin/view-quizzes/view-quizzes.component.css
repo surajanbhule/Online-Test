@@ -1,0 +1,8 @@
+.quizzes-header-image {
+    background-image: url('../../../../assets/quiz.png');
+    background-size: cover;
+}
+
+.quiz-card {
+    margin-bottom: 8px;
+}

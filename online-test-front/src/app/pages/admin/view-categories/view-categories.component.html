@@ -3,8 +3,8 @@
         <div mat-subheader>All Categories</div>
         <mat-list-item *ngFor="let c of categories">
             <mat-icon mat-list-icon>category</mat-icon>
-            <div mat-line>{{c.cat_title}}</div>
-            <div mat-line>{{c.cat_description}}</div>
+            <div mat-line mat-card-title>{{c.cat_title}}</div>
+            <div mat-line mat-card-subtitle>{{c.cat_description}}</div>
             <mat-divider></mat-divider>
         </mat-list-item>
     </mat-list>
