@@ -23,6 +23,7 @@ import { ViewCategoriesComponent } from './pages/admin/view-categories/view-cate
 import { AddCategoriesComponent } from './pages/admin/add-categories/add-categories.component';
 import { ViewQuizzesComponent } from './pages/admin/view-quizzes/view-quizzes.component';
 import { AddQuizComponent } from './pages/admin/add-quiz/add-quiz.component';
+import { UpdateQuizComponent } from './pages/admin/update-quiz/update-quiz.component';
 
 
 @NgModule({
@@ -41,7 +42,8 @@ import { AddQuizComponent } from './pages/admin/add-quiz/add-quiz.component';
     ViewCategoriesComponent,
     AddCategoriesComponent,
     ViewQuizzesComponent,
-    AddQuizComponent
+    AddQuizComponent,
+    UpdateQuizComponent
   ],
   imports: [
     BrowserModule,
