@@ -10,16 +10,17 @@
       <p>{{ q.qdescription }}</p>
     </mat-card-content>
     <mat-card-actions>
-        <button mat-raised-button color="primary">Questions</button>
-        <button mat-button color="warn" class="ms-2">Max Marks : {{q.max_marks}}</button>
-        <button mat-button color="warn" class="ms-2">Questions : {{q.number_of_questions}}</button>
-        <button mat-raised-button color="primary" class="ms-2">Update</button>
-        <button mat-raised-button color="primary" class="ms-2">Attempts</button>
+        <button mat-raised-button color="accent">Questions</button>
+        <button mat-button  class="ms-2">Max Marks : {{q.max_marks}}</button>
+        <button mat-button  class="ms-2">Questions : {{q.number_of_questions}}</button>
+        <button mat-raised-button color="accent" class="ms-2">Update</button>
+        <button mat-raised-button color="accent" class="ms-2">Attempts</button>
+        <button mat-raised-button color="warn" class="ms-2" (click)="deleteQuiz(q.qid)">Delete</button>
     </mat-card-actions>
   </mat-card>
 <mat-card>
    <div class="container text-center">
-    <button mat-raised-button color="primary" routerLink="/admin/add-quiz" >Add New Quiz</button>
+    <button mat-raised-button color="accent" routerLink="/admin/add-quiz" >Add New Quiz</button>
   </div>
 </mat-card>
  

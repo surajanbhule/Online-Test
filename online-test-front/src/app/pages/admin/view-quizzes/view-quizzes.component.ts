@@ -21,4 +21,41 @@ export class ViewQuizzesComponent implements OnInit {
       }
     )
   }
+
+  deleteQuiz(qid:any){
+   
+  Swal.fire({
+    title: 'Are you sure?',
+    text: "You won't be able to revert this!",
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonColor: '#3085d6',
+    cancelButtonColor: '#d33',
+    confirmButtonText: 'Yes, delete it!',
+  }).then((result) => {
+    if (result.isConfirmed) {
+
+      //delete code
+       this.quizServices.deleteQuiz(qid).subscribe(
+         (data) => {
+          this.quizzes = this.quizzes.filter((quiz: any) => quiz.qid != qid);
+           Swal.fire({
+             position: 'top-end',
+             icon: 'success',
+             title: 'Quiz Deleted Successfully',
+             showConfirmButton: false,
+             timer: 2500,
+           });
+           
+         },
+         (error) => {
+           Swal.fire('Unable To Delete Quiz');
+         }
+       );
+
+    }
+  });
+
+   
+  }
 }
