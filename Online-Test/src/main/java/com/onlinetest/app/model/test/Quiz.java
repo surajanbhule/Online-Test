@@ -17,7 +17,7 @@ public class Quiz {
     private String qdescription;
     private String max_marks;
     private String number_of_questions;
-    private boolean avtive=false;
+    private boolean active=true;
 
     @ManyToOne(fetch = FetchType.EAGER)
     private Category category;
@@ -69,12 +69,12 @@ public class Quiz {
         this.number_of_questions = number_of_questions;
     }
 
-    public boolean isAvtive() {
-        return avtive;
+    public boolean isActive() {
+        return active;
     }
 
-    public void setAvtive(boolean avtive) {
-        this.avtive = avtive;
+    public void setActive(boolean avtive) {
+        this.active = avtive;
     }
 
     public Category getCategory() {
