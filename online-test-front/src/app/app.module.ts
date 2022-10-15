@@ -22,6 +22,7 @@ import { WelcomeComponent } from './pages/admin/welcome/welcome.component';
 import { ViewCategoriesComponent } from './pages/admin/view-categories/view-categories.component';
 import { AddCategoriesComponent } from './pages/admin/add-categories/add-categories.component';
 import { ViewQuizzesComponent } from './pages/admin/view-quizzes/view-quizzes.component';
+import { AddQuizComponent } from './pages/admin/add-quiz/add-quiz.component';
 
 
 @NgModule({
@@ -39,7 +40,8 @@ import { ViewQuizzesComponent } from './pages/admin/view-quizzes/view-quizzes.co
     WelcomeComponent,
     ViewCategoriesComponent,
     AddCategoriesComponent,
-    ViewQuizzesComponent
+    ViewQuizzesComponent,
+    AddQuizComponent
   ],
   imports: [
     BrowserModule,
