@@ -1,0 +1,41 @@
+<mat-card>
+<div class="container text-center">
+    <button mat-raised-button color="accent" [routerLink]="'/admin/add-question/'+qid+'/'+qtitle">Add Question</button>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <mat-card *ngFor="let q of questions" class="question-box">
+            <mat-card-content>
+
+                <p mat-subheader>
+                    <b>{{q.que_id}}.</b>  {{q.content}}
+                </p>
+                <div class="row">
+                    <div class="col-md-6">
+                        <p>1. {{q.option1}}</p>
+                    </div>
+
+                    <div class="col-md-6">
+                        <p>2. {{q.option2}}</p>
+                    </div>
+                </div>
+
+                   <div class="row">
+                    <div class="col-md-6">
+                        <p>3. {{q.option3}}</p>
+                    </div>
+
+                    <div class="col-md-6">
+                        <p>4. {{q.option4}}</p>
+                    </div>
+                </div>
+
+                <mat-divider></mat-divider>
+                <p><b>Correct Answer : </b>{{q.answer}}</p>
+
+            </mat-card-content>
+        </mat-card>
+    </div>
+</div>
+
+</mat-card>

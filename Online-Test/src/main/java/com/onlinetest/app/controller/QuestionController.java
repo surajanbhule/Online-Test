@@ -35,6 +35,11 @@ public class QuestionController {
         return ResponseEntity.ok(questionService.getQuestions());
     }
 
+    @GetMapping("/all/{qid}")
+    public ResponseEntity<?> getAllQuestions(){
+        return ResponseEntity.ok(questionService.getQuestions());
+    }
+
     //may this method change
     @GetMapping("/quiz/{qid}")
     public ResponseEntity<?> getQuestionOfQuiz(@PathVariable("qid") long qid){
