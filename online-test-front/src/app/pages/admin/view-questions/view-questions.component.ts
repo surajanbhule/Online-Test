@@ -33,4 +33,45 @@ export class ViewQuestionsComponent implements OnInit {
     )
   }
 
+  deleteQuestion(question_id:any){
+
+    Swal.fire({
+      title: 'Are you sure?',
+      text: "You won't be able to revert this!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, delete it!',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        
+        this.questinService.deleteQuestion(question_id).subscribe(
+          (data)=>{
+            Swal.fire({
+              position: 'top-end',
+              icon: 'success',
+              title: 'Question Deleted Successfully!',
+              showConfirmButton: false,
+              timer: 2500,
+            });
+            this.questions=this.questions.filter((question:any)=> question.que_id!=question_id);
+          },
+          (error)=>{
+            Swal.fire({
+              position: 'top-end',
+              icon: 'error',
+              title: 'Unable to delete question this time',
+              showConfirmButton: false,
+              timer: 2500,
+            });
+          }
+        )
+
+
+      }
+    });
+
+  }
+
 }
