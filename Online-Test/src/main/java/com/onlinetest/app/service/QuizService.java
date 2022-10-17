@@ -19,4 +19,8 @@ public interface QuizService {
     public void deleteQuiz(long quiz_id);
 
     public Set<Quiz> getQuizzesOfCategory(Category category);
+
+    public Set<Quiz> getActiveQuizzes();
+
+    public Set<Quiz> getActiveQuizzesByCategory(Category category, Boolean isActive);
 }

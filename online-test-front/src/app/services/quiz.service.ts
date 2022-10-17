@@ -12,7 +12,7 @@ export class QuizService {
     return this.http.get(`${baseUrl}/quiz/`);
   }
 
-  public quizzesByCategory(cat_id:any) {
+  public quizzesByCategory(cat_id: any) {
     return this.http.get(`${baseUrl}/quiz/category/${cat_id}`);
   }
 
@@ -30,5 +30,13 @@ export class QuizService {
 
   public updateQuiz(quiz: any) {
     return this.http.put(`${baseUrl}/quiz/`, quiz);
+  }
+
+  public activeQuizzes() {
+    return this.http.get(`${baseUrl}/quiz/active`);
+  }
+
+  public activeQuizzesByCategory(cat_id:any){
+     return this.http.get(`${baseUrl}/quiz/category/active/${cat_id}`);
   }
 }

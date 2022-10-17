@@ -9,4 +9,9 @@ import java.util.Set;
 
 public interface QuizRepository extends JpaRepository<Quiz, Long> {
     public Set<Quiz> findByCategory(Category category);
+
+    public Set<Quiz> findByActive(Boolean isActive);
+
+    public Set<Quiz> findByCategoryAndActive(Category category, Boolean isActive);
+
 }

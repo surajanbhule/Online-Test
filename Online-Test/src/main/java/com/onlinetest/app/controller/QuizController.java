@@ -37,6 +37,18 @@ public class QuizController {
         return ResponseEntity.ok(quizService.getQuizzesOfCategory(category));
     }
 
+    @GetMapping("/active")
+    public ResponseEntity<?> getActiveQuizzes(){
+        return ResponseEntity.ok(quizService.getActiveQuizzes());
+    }
+
+    @GetMapping("/category/active/{cat_id}")
+    public ResponseEntity<?> getActiveQuizzesOfCategory(@PathVariable("cat_id") long cat_id){
+        Category category= new Category();
+        category.setCat_id(cat_id);
+        return ResponseEntity.ok(quizService.getActiveQuizzesByCategory(category,true));
+    }
+
     @PutMapping("/")
     public Quiz updateQuiz(@RequestBody Quiz quiz ){
         return quizService.updateQuiz(quiz);

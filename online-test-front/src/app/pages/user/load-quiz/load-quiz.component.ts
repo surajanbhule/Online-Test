@@ -23,7 +23,7 @@ export class LoadQuizComponent implements OnInit {
         console.log("current value"+this.cat_id);
 
         if (this.cat_id == 0) {
-          this.quizService.quizzes().subscribe(
+          this.quizService.activeQuizzes().subscribe(
             (data) => {
               this.quizzes = data;
             },
@@ -33,7 +33,7 @@ export class LoadQuizComponent implements OnInit {
           );
         }
         else {
-          this.quizService.quizzesByCategory(this.cat_id).subscribe(
+          this.quizService.activeQuizzesByCategory(this.cat_id).subscribe(
             (data)=>{
               this.quizzes=data;
             },
