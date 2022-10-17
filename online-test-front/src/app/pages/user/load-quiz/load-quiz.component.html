@@ -4,7 +4,7 @@
         <div class="row">
             
             <div class="col-md-4" *ngFor="let q of quizzes">
-             <mat-card>
+             <mat-card class="mt-3">
                 <mat-card-header>
                     <div mat-card-avatar class="quiz-header-image"></div>
                      <mat-card-title>
@@ -25,10 +25,14 @@
                     <button mat-raised-button color="primary">Start Quiz</button>
                     <button mat-button color="accent">Questions: {{q.number_of_questions}}</button>
                 </mat-card-actions>
+
+                
+                   
+                
                 </mat-card>
             </div>
-
+            <h3 *ngIf="quizzes.length == 0" class="text-warning text-center">No Data In These Category</h3>
         </div>
     
-
+             
 </div>

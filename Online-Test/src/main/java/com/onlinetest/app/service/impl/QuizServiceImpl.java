@@ -1,9 +1,11 @@
 package com.onlinetest.app.service.impl;
 
+import com.onlinetest.app.model.test.Category;
 import com.onlinetest.app.model.test.Quiz;
 import com.onlinetest.app.repository.QuizRepository;
 import com.onlinetest.app.service.QuizService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.LinkedHashSet;
@@ -37,5 +39,10 @@ public class QuizServiceImpl implements QuizService {
     @Override
     public void deleteQuiz(long quiz_id) {
         quizRepository.deleteById(quiz_id);
+    }
+
+    @Override
+    public Set<Quiz> getQuizzesOfCategory(Category category) {
+        return quizRepository.findByCategory(category);
     }
 }

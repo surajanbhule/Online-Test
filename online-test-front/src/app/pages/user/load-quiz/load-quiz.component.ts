@@ -15,20 +15,35 @@ export class LoadQuizComponent implements OnInit {
   constructor(private route:ActivatedRoute,private quizService:QuizService) { }
 
   ngOnInit(): void {
-    this.cat_id=this.route.snapshot.params['cat_id'];
+    
 
-    if(this.cat_id==0){
-      this.quizService.quizzes().subscribe(
-        (data)=>{
-          this.quizzes=data;
-        },
-        (error)=>{
-          Swal.fire('Server Down','Unable To Load Data','question');
+    this.route.params.subscribe(
+      (params)=>{
+        this.cat_id = params['cat_id'];
+        console.log("current value"+this.cat_id);
+
+        if (this.cat_id == 0) {
+          this.quizService.quizzes().subscribe(
+            (data) => {
+              this.quizzes = data;
+            },
+            (error) => {
+              Swal.fire('Server Down', 'Unable To Load Data', 'question');
+            }
+          );
         }
-      )
-    }
-
-
+        else {
+          this.quizService.quizzesByCategory(this.cat_id).subscribe(
+            (data)=>{
+              this.quizzes=data;
+            },
+            (error)=>{
+              Swal.fire('Server Down', 'Unable To Load Data', 'question');
+            }
+          )
+        }
+      }
+    )
   }
 
 }

@@ -1,5 +1,6 @@
 package com.onlinetest.app.controller;
 
+import com.onlinetest.app.model.test.Category;
 import com.onlinetest.app.model.test.Quiz;
 import com.onlinetest.app.service.QuizService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,6 +28,13 @@ public class QuizController {
     @GetMapping("/")
     public ResponseEntity<?> getQuizzes(){
         return ResponseEntity.ok(quizService.getQuizzes());
+    }
+
+    @GetMapping("/category/{cat_id}")
+    public ResponseEntity<?> getQuizzesOfCategory(@PathVariable("cat_id") long cat_id){
+        Category category= new Category();
+        category.setCat_id(cat_id);
+        return ResponseEntity.ok(quizService.getQuizzesOfCategory(category));
     }
 
     @PutMapping("/")
