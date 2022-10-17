@@ -1,0 +1,48 @@
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <mat-card>
+                    <mat-card-header>
+                        <mat-card-title>Read The Instructions Of This Page Carefully</mat-card-title>
+                        <mat-card-subtitle>One More Step To Go</mat-card-subtitle>
+                    </mat-card-header>
+
+                    <mat-card-content>
+                        <h1 class="ms-5 text-center">{{quiz.qtitle}}</h1>
+                        <p class="text-center">{{quiz.qdescription}}</p>
+                         <mat-divider></mat-divider>
+                         
+                    <h1 class="text-warning"><b>Important Instructions !</b></h1>
+                    <ul>
+                        
+                        <li>This quiz is only for practice purpose.</li>
+                        <li>You have to submit quiz within <u>{{quiz.number_of_questions/2}} minutes.</u></li>
+                        <li>You can attemp this quiz any number of time</li>
+                        <li>There are {{quiz.number_of_questions}} questions in this quiz.</li>
+                        <li>Each question carries {{quiz.max_marks / quiz.number_of_questions}}.</li>
+                        <li>No negative marking for wrong ones.</li>
+                        <li>All questions will be MCQ type.</li>
+                    </ul>
+                    <mat-divider> </mat-divider>
+        
+                    <h2 class="text-danger">Attempting Quiz</h2> 
+
+                    <ul>
+                        <li>Click <strong class="text-warning">Start Quiz</strong> button below to start test.</li>
+                        <li>The time will start the moment you clicked the start button.</li>
+                        <li>You can not resume this quiz if interrupted due to any reason.</li>
+                        <li>Click <strong class="text-warning">Next</strong> button to go to next question.</li>
+                        <li>Click <strong class="text-warning"> Submit </strong>button to submit this quiz.</li>
+                        <li>Report of this test will generate in the form of pdf.</li>
+                    </ul>
+                    </mat-card-content>
+                   <mat-divider> </mat-divider>
+                    <mat-card-actions class="text-center">
+                        <button mat-raised-button color="primary">Start Test</button>
+                    </mat-card-actions>
+                </mat-card>
+            </div>
+        </div>
+    </div>
+
