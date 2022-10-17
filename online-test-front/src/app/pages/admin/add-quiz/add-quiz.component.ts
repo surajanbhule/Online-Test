@@ -95,6 +95,20 @@ export class AddQuizComponent implements OnInit {
           showConfirmButton: false,
           timer: 2500,
         });  
+
+          this.quizData = {
+            qid: '',
+            qtitle: '',
+            qdescription: '',
+            max_marks: '',
+            number_of_questions: '',
+            active: false,
+            category: {
+              cat_id: null,
+              cat_title: '',
+              cat_description: '',
+            },
+          };
         console.log(data);
       },
       (error)=>{

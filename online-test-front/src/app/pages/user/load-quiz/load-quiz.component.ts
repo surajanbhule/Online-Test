@@ -1,0 +1,34 @@
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { QuizService } from 'src/app/services/quiz.service';
+import Swal from 'sweetalert2';
+
+@Component({
+  selector: 'app-load-quiz',
+  templateUrl: './load-quiz.component.html',
+  styleUrls: ['./load-quiz.component.css']
+})
+export class LoadQuizComponent implements OnInit {
+
+  cat_id:any;
+  quizzes:any;
+  constructor(private route:ActivatedRoute,private quizService:QuizService) { }
+
+  ngOnInit(): void {
+    this.cat_id=this.route.snapshot.params['cat_id'];
+
+    if(this.cat_id==0){
+      this.quizService.quizzes().subscribe(
+        (data)=>{
+          this.quizzes=data;
+        },
+        (error)=>{
+          Swal.fire('Server Down','Unable To Load Data','question');
+        }
+      )
+    }
+
+
+  }
+
+}

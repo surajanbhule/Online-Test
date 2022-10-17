@@ -1,0 +1,34 @@
+<div class="container-fluid">
+
+        <div class="container  w-100"><h1 mat-subheader class="text-center text-white">All Quizzes</h1></div>
+        <div class="row">
+            
+            <div class="col-md-4" *ngFor="let q of quizzes">
+             <mat-card>
+                <mat-card-header>
+                    <div mat-card-avatar class="quiz-header-image"></div>
+                     <mat-card-title>
+                        {{q.qtitle}}
+                        
+                    </mat-card-title>
+
+                    <mat-card-subtitle>
+                        {{q.category.cat_title}}
+                    </mat-card-subtitle>
+                   
+                </mat-card-header>
+                <mat-card-content>
+                    <p class="truncate">{{q.qdescription}}</p>
+                </mat-card-content>
+
+                <mat-card-actions>
+                    <button mat-raised-button color="primary">Start Quiz</button>
+                    <button mat-button color="accent">Questions: {{q.number_of_questions}}</button>
+                </mat-card-actions>
+                </mat-card>
+            </div>
+
+        </div>
+    
+
+</div>

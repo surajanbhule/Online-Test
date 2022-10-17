@@ -40,6 +40,11 @@ export class AddCategoriesComponent implements OnInit {
           showConfirmButton: false,
           timer: 2500,
         });
+
+        this.categories = {
+          cat_title: '',
+          cat_description: '',
+        };
       },
       (error) => {
         Swal.fire({
