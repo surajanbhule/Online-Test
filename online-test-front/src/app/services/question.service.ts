@@ -20,4 +20,8 @@ export class QuestionService {
   public deleteQuestion(question_id:any){
     return this.http.delete(`${baseUrl}/question/${question_id}`)
   }
+
+  public getQuestionsByQuiz(qid:any){
+    return this.http.get(`${baseUrl}/question/quiz/${qid}`);
+  }
 }

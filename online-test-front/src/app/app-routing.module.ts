@@ -15,90 +15,91 @@ import { ProfileComponent } from './pages/profile/profile.component';
 import { SignupComponent } from './pages/signup/signup.component';
 import { InstructionsComponent } from './pages/user/instructions/instructions.component';
 import { LoadQuizComponent } from './pages/user/load-quiz/load-quiz.component';
+import { StartTestComponent } from './pages/user/start-test/start-test.component';
 import { UserDashboardComponent } from './pages/user/user-dashboard/user-dashboard.component';
 import { AdminGuard } from './services/admin.guard';
 import { NormalGuard } from './services/normal.guard';
 
 const routes: Routes = [
-   {
-    path:"",
-    component:HomeComponent,
-    pathMatch:"full"
-
-},
   {
-    path:"signup",
-    component:SignupComponent,
-    pathMatch:"full"
+    path: '',
+    component: HomeComponent,
+    pathMatch: 'full',
+  },
+  {
+    path: 'signup',
+    component: SignupComponent,
+    pathMatch: 'full',
+  },
+  {
+    path: 'login',
+    component: LoginComponent,
+    pathMatch: 'full',
+  },
+  {
+    path: 'admin',
+    component: DashboardComponent,
+    canActivate: [AdminGuard],
+    children: [
+      {
+        path: '',
+        component: WelcomeComponent,
+      },
+      {
+        path: 'profile',
+        component: ProfileComponent,
+      },
+      {
+        path: 'categories',
+        component: ViewCategoriesComponent,
+      },
+      {
+        path: 'add-category',
+        component: AddCategoriesComponent,
+      },
+      {
+        path: 'quizzes',
+        component: ViewQuizzesComponent,
+      },
+      {
+        path: 'add-quiz',
+        component: AddQuizComponent,
+      },
+      {
+        path: 'quiz/:qid',
+        component: UpdateQuizComponent,
+      },
+      {
+        path: 'view-questions/:qid/:qtitle',
+        component: ViewQuestionsComponent,
+      },
+      {
+        path: 'add-question/:qid/:qtitle',
+        component: AddQuestionComponent,
+      },
+    ],
+  },
+  {
+    path: 'user-dashboard',
+    component: UserDashboardComponent,
+    canActivate: [NormalGuard],
+    children: [
+      {
+        path: ':cat_id',
+        component: LoadQuizComponent,
+      },
+      {
+        path: 'instructions/:qid',
+        component: InstructionsComponent,
+      },
+    ],
+  },
 
-},
- {
-    path:"login",
-    component:LoginComponent,
-    pathMatch:"full"
-
-},
-{
-  path:"admin",
-  component:DashboardComponent,
-  canActivate:[AdminGuard],
-  children:[
-    {
-      path:"",
-      component:WelcomeComponent
-    },
-    {
-      path:"profile",
-      component:ProfileComponent
-    },
-    {
-      path:"categories",
-      component:ViewCategoriesComponent
-    },
-    {
-      path:"add-category",
-      component:AddCategoriesComponent
-    },
-    {
-      path:"quizzes",
-      component:ViewQuizzesComponent
-    },
-    {
-      path:"add-quiz",
-      component:AddQuizComponent
-    },
-    {
-      path:"quiz/:qid",
-      component:UpdateQuizComponent
-
-    },
-    {
-      path:"view-questions/:qid/:qtitle",
-      component:ViewQuestionsComponent
-    },
-    {
-      path:"add-question/:qid/:qtitle",
-      component:AddQuestionComponent
-    }
-
-  ]
-},
-{
-  path:"user-dashboard",
-  component:UserDashboardComponent,
-  canActivate:[NormalGuard],
-  children:[
-    {
-      path:':cat_id',
-      component:LoadQuizComponent
-    },
-    {
-      path:'instructions/:qid',
-      component:InstructionsComponent
-    }
-  ]
-},
-
+  {
+    path: 'start/:qid',
+    component: StartTestComponent,
+    canActivate: [NormalGuard],
+  },
 ];
 
 @NgModule({

@@ -11,6 +11,8 @@ import { MatTableModule } from '@angular/material/table';
 import { MatSlideToggle, MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatSelectModule } from '@angular/material/select';
 import { ScrollingModule } from '@angular/cdk/scrolling';
+import { MatRadioModule } from '@angular/material/radio';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 
 
@@ -30,7 +32,9 @@ import { ScrollingModule } from '@angular/cdk/scrolling';
     MatTableModule,
     MatSlideToggleModule,
     MatSelectModule,
-    ScrollingModule
+    ScrollingModule,
+    MatRadioModule,
+    MatProgressSpinnerModule
   ]
 })
 export class MaterialModule { }
