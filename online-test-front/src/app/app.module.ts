@@ -30,6 +30,7 @@ import { SidebarComponent as UserSidebar } from './pages/user/sidebar/sidebar.co
 import { LoadQuizComponent } from './pages/user/load-quiz/load-quiz.component';
 import { InstructionsComponent } from './pages/user/instructions/instructions.component';
 import { StartTestComponent } from './pages/user/start-test/start-test.component';
+import { NgxUiLoaderComponent, NgxUiLoaderHttpModule, NgxUiLoaderModule } from 'ngx-ui-loader';
 
 
 @NgModule({
@@ -63,7 +64,11 @@ import { StartTestComponent } from './pages/user/start-test/start-test.component
     BrowserAnimationsModule,
     MaterialModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgxUiLoaderModule,
+    NgxUiLoaderHttpModule.forRoot({
+      showForeground:true
+    })
   ],
   providers: [
       {

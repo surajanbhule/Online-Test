@@ -34,7 +34,7 @@ export class StartTestComponent implements OnInit {
     this.questionService.getQuestionsByQuiz(this.qid).subscribe(
       (data)=>{
         this.questions = data;
-        this.timer=this.questions.length * 60 * 2;
+        this.timer=this.questions.length * 30;
         this.questions.forEach((q:any) => {
           q['givenAnswers']='';
           console.log(this.questions);
@@ -67,7 +67,10 @@ export class StartTestComponent implements OnInit {
   }
 
   submitQuiz(){
+    
 
+          
+    
     Swal.fire({
       title: 'Do you want to submit quiz?',
       
@@ -78,7 +81,19 @@ export class StartTestComponent implements OnInit {
       /* Read more about isConfirmed, isDenied below */
       if (result.isConfirmed) {
         
-        this.evalQuiz()
+       this.isSubmit = true;
+       this.timer= -1
+         this.questions.forEach((q: any) => {
+           if (q.givenAnswer == q.answer) {
+             this.correctAnswers++;
+             this.marksGot += this.marksEach;
+           }
+
+           if (q.givenAnswer.trim() != '') {
+             this.attemted++;
+           }
+         });
+          
 
       }
 
@@ -87,15 +102,15 @@ export class StartTestComponent implements OnInit {
       console.log('Attemted:' + this.attemted);
     });
 
-   
+    
 
   }
 
   startTimer(){
   let t =  window.setInterval(()=>{
 
-      if(this.timer<=0){
-        this.evalQuiz();
+      if(this.timer==0){
+        this.submitQuiz();
         clearInterval(t);
       }else{
         this.timer=this.timer-1;
@@ -109,17 +124,4 @@ export class StartTestComponent implements OnInit {
     return `${mm} minutes : ${ss} seconds`
   }
 
-  evalQuiz(){
-         this.questions.forEach((q: any) => {
-           if (q.givenAnswer == q.answer) {
-             this.correctAnswers++;
-             this.marksGot += this.marksEach;
-           }
-
-           if (q.givenAnswer.trim() != '') {
-             this.attemted++;
-           }
-         });
-          this.isSubmit = true;
-  }
 }
